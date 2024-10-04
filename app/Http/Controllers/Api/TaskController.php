@@ -11,11 +11,11 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index()
-    // {
-    //     $tasks = Task::all();
-    //     return response()->json(['tasks' => $tasks, 'message' => 'Get all tasks success', 'success' => true], 200);
-    // }
+    public function index()
+    {
+        $tasks = Task::all();
+        return response()->json(['tasks' => $tasks, 'message' => 'Get all tasks success', 'success' => true], 200);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -74,11 +74,12 @@ class TaskController extends Controller
         return response()->json(['message' => 'Task not found', 'success' => false], 404);
     }
 
-    public function fetchTasks(Request $request)
-    {
-        // Phân Trang
-        $perPage = $request->get('perPage', 10);
-        $tasks = Task::paginate($perPage);
-        return response()->json(['tasks' => $tasks, 'success' => true], 200);
-    }
+
+    // Phân Trang
+    // public function fetchTasks(Request $request)
+    // {
+    //     $perPage = $request->get('perPage', 10);
+    //     $tasks = Task::paginate($perPage);
+    //     return response()->json(['tasks' => $tasks, 'success' => true], 200);
+    // }
 }
